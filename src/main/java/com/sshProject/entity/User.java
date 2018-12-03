@@ -19,17 +19,17 @@ public class User {
     @Column(name="phoneNumber")
     private String phoneNumber;
 
-    @Column(name="SalaryMoudle")
-    private int SalaryMoudle;
+    @Column(name="SalaryModule")
+    private int SalaryModule;
 
-    @Column(name="ProjectMoudle")
-    private int ProjectMoudle;
+    @Column(name="ProjectModule")
+    private int ProjectModule;
 
-    @Column(name="TrainingMoudle")
-    private int TrainingMoudle;
+    @Column(name="TrainingModule")
+    private int TrainingModule;
 
-    @Column(name="EmployeeMoudle")
-    private int EmployeeMoudle;
+    @Column(name="EmployeeModule")
+    private int EmployeeModule;
 
     @Column(name="isAdmin")
     private int isAdmin;
@@ -74,36 +74,36 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public int getSalaryMoudle() {
-        return SalaryMoudle;
+    public int getSalaryModule() {
+        return SalaryModule;
     }
 
-    public void setSalaryMoudle(int salaryMoudle) {
-        SalaryMoudle = salaryMoudle;
+    public void setSalaryModule(int salaryModule) {
+        SalaryModule = salaryModule;
     }
 
-    public int getProjectMoudle() {
-        return ProjectMoudle;
+    public int getProjectModule() {
+        return ProjectModule;
     }
 
-    public void setProjectMoudle(int projectMoudle) {
-        ProjectMoudle = projectMoudle;
+    public void setProjectModule(int projectModule) {
+        ProjectModule = projectModule;
     }
 
-    public int getTrainingMoudle() {
-        return TrainingMoudle;
+    public int getTrainingModule() {
+        return TrainingModule;
     }
 
-    public void setTrainingMoudle(int trainingMoudle) {
-        TrainingMoudle = trainingMoudle;
+    public void setTrainingModule(int trainingModule) {
+        TrainingModule = trainingModule;
     }
 
-    public int getEmployeeMoudle() {
-        return EmployeeMoudle;
+    public int getEmployeeModule() {
+        return EmployeeModule;
     }
 
-    public void setEmployeeMoudle(int employeeMoudle) {
-        EmployeeMoudle = employeeMoudle;
+    public void setEmployeeModule(int employeeModule) {
+        EmployeeModule = employeeModule;
     }
 
     public int getIsAdmin() {
