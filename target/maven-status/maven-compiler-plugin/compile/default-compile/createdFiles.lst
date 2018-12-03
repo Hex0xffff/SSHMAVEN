@@ -1,0 +1,6 @@
+com\sshProject\dao\impl\PersonDaoImpl.class
+com\sshProject\entity\Person.class
+com\sshProject\service\PersonService.class
+com\sshProject\dao\PersonDao.class
+com\sshProject\service\impl\PersonServiceImpl.class
+com\sshProject\controller\PersonController.class
