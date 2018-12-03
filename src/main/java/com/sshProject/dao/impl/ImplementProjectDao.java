@@ -1,6 +1,4 @@
 package com.sshProject.dao.impl;
-
-
 import com.sshProject.dao.ProjectDao;
 import com.sshProject.entity.Project;
 import com.sshProject.entity.ProjectGroup;
@@ -23,9 +21,10 @@ public class ImplementProjectDao implements ProjectDao
     {
         this.sessionFactory=sessionFactory;
     }
-    public  boolean addProject(Project project)
+    public  void addProject(Project project)
     {
-      //不会
+      sessionFactory.getCurrentSession().save(project);
+
     }
     public  boolean updateProject(Project project)
     {
@@ -62,9 +61,9 @@ public class ImplementProjectDao implements ProjectDao
         query.setString(0,String.valueOf(projectIndex));
         return (ArrayList<Task>) query.list();
     }
-    public boolean addTask(Task task)
+    public void addTask(Task task)
     {
-
+        sessionFactory.getCurrentSession().save(task);
     }
     public boolean updateTask(Task task)
     {
@@ -105,6 +104,5 @@ public class ImplementProjectDao implements ProjectDao
         Query query=sessionFactory.getCurrentSession().createQuery(hql);
         return (ArrayList<Project>) query.list();
     }
-
 
 }

@@ -4,7 +4,7 @@ import com.sshProject.entity.TrainingGroup;
 import com.sshProject.entity.Employee;
 import java.util.ArrayList;
 public interface TrainingDao {
-    boolean addTraining(Training training);
+    void addTraining(Training training);
 
     boolean updateTraining(Training training);
 

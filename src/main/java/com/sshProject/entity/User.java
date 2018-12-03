@@ -4,6 +4,9 @@ import javax.persistence.*;
 @Entity
 @Table(name="User")
 public class User {
+    @Column(name="userId")
+    private int userId;
+
     @Column(name="username")
     private String username;
 
@@ -17,19 +20,27 @@ public class User {
     private String phoneNumber;
 
     @Column(name="SalaryMoudle")
-    private boolean SalaryMoudle;
+    private int SalaryMoudle;
 
     @Column(name="ProjectMoudle")
-    private boolean ProjectMoudle;
+    private int ProjectMoudle;
 
     @Column(name="TrainingMoudle")
-    private boolean TrainingMoudle;
+    private int TrainingMoudle;
 
     @Column(name="EmployeeMoudle")
-    private boolean EmployeeMoudle;
+    private int EmployeeMoudle;
 
     @Column(name="isAdmin")
-    private boolean isAdmin;
+    private int isAdmin;
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
     public String getUsername() {
         return username;
@@ -63,43 +74,43 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public boolean isSalaryMoudle() {
+    public int getSalaryMoudle() {
         return SalaryMoudle;
     }
 
-    public void setSalaryMoudle(boolean salaryMoudle) {
+    public void setSalaryMoudle(int salaryMoudle) {
         SalaryMoudle = salaryMoudle;
     }
 
-    public boolean isProjectMoudle() {
+    public int getProjectMoudle() {
         return ProjectMoudle;
     }
 
-    public void setProjectMoudle(boolean projectMoudle) {
+    public void setProjectMoudle(int projectMoudle) {
         ProjectMoudle = projectMoudle;
     }
 
-    public boolean isTrainingMoudle() {
+    public int getTrainingMoudle() {
         return TrainingMoudle;
     }
 
-    public void setTrainingMoudle(boolean trainingMoudle) {
+    public void setTrainingMoudle(int trainingMoudle) {
         TrainingMoudle = trainingMoudle;
     }
 
-    public boolean isEmployeeMoudle() {
+    public int getEmployeeMoudle() {
         return EmployeeMoudle;
     }
 
-    public void setEmployeeMoudle(boolean employeeMoudle) {
+    public void setEmployeeMoudle(int employeeMoudle) {
         EmployeeMoudle = employeeMoudle;
     }
 
-    public boolean isAdmin() {
+    public int getIsAdmin() {
         return isAdmin;
     }
 
-    public void setAdmin(boolean admin) {
-        isAdmin = admin;
+    public void setIsAdmin(int isAdmin) {
+        this.isAdmin = isAdmin;
     }
 }
