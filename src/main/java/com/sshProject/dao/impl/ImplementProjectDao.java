@@ -95,7 +95,7 @@ public class ImplementProjectDao implements ProjectDao
     {
         String hql="from Project p where p.projIndex=?";
         Query query=sessionFactory.getCurrentSession().createQuery(hql);
-        query.setString(0,String.valueOf(projectIndex);
+        query.setString(0,String.valueOf(projectIndex));
         return (Project)query.uniqueResult();
     }
     public ArrayList<Project> getAllProjects()
