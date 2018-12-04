@@ -6,11 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="MavenDemo" />
+        <module name="SshProject" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="MavenDemo" target="1.5" />
-    </bytecodeTargetLevel>
   </component>
 </project>
