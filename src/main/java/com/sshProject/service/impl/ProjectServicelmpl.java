@@ -16,8 +16,8 @@ public class ProjectServicelmpl implements ProjectService{
     @Autowired
     private ProjectDao projectDao;
 
-    public boolean addProject(Project project) {
-    	return projectDao.addProject(project);
+    public void addProject(Project project) {
+    	projectDao.addProject(project);
     }
 
     public boolean updateProject(Project project) {
