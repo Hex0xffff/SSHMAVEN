@@ -11,4 +11,6 @@ public interface DemandDao {
     ArrayList<TrainingDemand> getDemands(int employeeId);
 
     ArrayList<TrainingDemand> getAllDemands();
+
+    TrainingDemand getDemand(int demandIndex);
 }
