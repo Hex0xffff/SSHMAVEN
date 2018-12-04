@@ -22,9 +22,9 @@ public class ImplementTrainingDao implements TrainingDao
     {
         this.sessionFactory=sessionFactory;
     }
-    public boolean addTraining(Training training)
+    public void addTraining(Training training)
     {
-
+        sessionFactory.getCurrentSession().save(training);
     }
     public boolean updateTraining(Training training)
     {

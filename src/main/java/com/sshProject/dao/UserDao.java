@@ -10,5 +10,5 @@ public interface UserDao {
 
     boolean deleteUser(int userId);
 
-    boolean checkAuthorization(String username);
+    //boolean checkAuthorization(String username); 不要这个了
 }

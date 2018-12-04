@@ -26,7 +26,43 @@ public class ImplementUserDao implements UserDao {
         return query.uniqueResult()!=null;
     }
 
-    public boolean loginEmail(String email,String password){
-        String sql="";
+    public boolean loginEmail(String email,String password)
+    {
+        String sql="from User u where u.email=? and u.password=?";
+        Query query=sessionFactory.getCurrentSession().createQuery(sql);
+        query.setString(0,email);
+        query.setString(1,password);
+        return query.uniqueResult()!=null;
     }
+
+    public boolean updatePassword(int userId, String oldVal, String newVal)
+    {
+        String sql1="from User u where u.userId=? and u.password=?";
+        Query query1=sessionFactory.getCurrentSession().createQuery(sql1);
+        query1.setString(0,String.valueOf(userId));
+        query1.setString(1,oldVal);
+        if(query1.uniqueResult()!=null)
+        {
+            String sql2="update User u set u.password=? where u.userId=?";
+            Query query2=sessionFactory.getCurrentSession().createQuery(sql2);
+            query2.setString(0,newVal);
+            query2.setString(1,String.valueOf(userId));
+            return (query2.executeUpdate()>0);
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public boolean deleteUser(int userId)
+    {
+        String hql="delete User u where u.userId=?";
+        Query   query=sessionFactory.getCurrentSession().createQuery(hql);
+        query.setString(0,String.valueOf(userId));
+        return (query.executeUpdate()>0);
+    }
+
+  //  public boolean checkAuthorization(String username)
+
 }

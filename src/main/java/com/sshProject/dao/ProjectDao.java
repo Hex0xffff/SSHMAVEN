@@ -5,7 +5,7 @@ import com.sshProject.entity.Task;
 import java.util.ArrayList;
 
 public interface ProjectDao {
-    boolean addProject(Project project);
+    void addProject(Project project);
 
     boolean updateProject(Project project);
 
@@ -15,7 +15,7 @@ public interface ProjectDao {
 
     ArrayList<Task> getProjectTasks(int projectIndex);
 
-    boolean addTask(Task task);
+    void addTask(Task task);
 
     boolean updateTask(Task task);
 

@@ -11,7 +11,7 @@ public class TrainingResource {
     private int trainerId;
 
     @Column(name="resourceStatus")
-    private boolean resourceStatus;
+    private int resourceStatus;
 
     @Column(name="description")
     private String description;
@@ -32,11 +32,11 @@ public class TrainingResource {
         this.trainerId = trainerId;
     }
 
-    public boolean isResourceStatus() {
+    public int getResourceStatus() {
         return resourceStatus;
     }
 
-    public void setResourceStatus(boolean resourceStatus) {
+    public void setResourceStatus(int resourceStatus) {
         this.resourceStatus = resourceStatus;
     }
 
