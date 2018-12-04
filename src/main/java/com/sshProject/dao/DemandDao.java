@@ -2,7 +2,7 @@ package com.sshProject.dao;
 import com.sshProject.entity.TrainingDemand;
 import java.util.ArrayList;
 public interface DemandDao {
-    boolean addDemand(TrainingDemand demand);
+    void addDemand(TrainingDemand demand);
 
     boolean updateDemand(TrainingDemand demand);
 

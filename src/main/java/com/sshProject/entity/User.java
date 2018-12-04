@@ -4,6 +4,9 @@ import javax.persistence.*;
 @Entity
 @Table(name="User")
 public class User {
+    @Column(name="userId")
+    private int userId;
+
     @Column(name="username")
     private String username;
 
@@ -16,20 +19,28 @@ public class User {
     @Column(name="phoneNumber")
     private String phoneNumber;
 
-    @Column(name="SalaryMoudle")
-    private boolean SalaryMoudle;
+    @Column(name="SalaryModule")
+    private int SalaryModule;
 
-    @Column(name="ProjectMoudle")
-    private boolean ProjectMoudle;
+    @Column(name="ProjectModule")
+    private int ProjectModule;
 
-    @Column(name="TrainingMoudle")
-    private boolean TrainingMoudle;
+    @Column(name="TrainingModule")
+    private int TrainingModule;
 
-    @Column(name="EmployeeMoudle")
-    private boolean EmployeeMoudle;
+    @Column(name="EmployeeModule")
+    private int EmployeeModule;
 
     @Column(name="isAdmin")
-    private boolean isAdmin;
+    private int isAdmin;
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
     public String getUsername() {
         return username;
@@ -63,43 +74,43 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public boolean isSalaryMoudle() {
-        return SalaryMoudle;
+    public int getSalaryModule() {
+        return SalaryModule;
     }
 
-    public void setSalaryMoudle(boolean salaryMoudle) {
-        SalaryMoudle = salaryMoudle;
+    public void setSalaryModule(int salaryModule) {
+        SalaryModule = salaryModule;
     }
 
-    public boolean isProjectMoudle() {
-        return ProjectMoudle;
+    public int getProjectModule() {
+        return ProjectModule;
     }
 
-    public void setProjectMoudle(boolean projectMoudle) {
-        ProjectMoudle = projectMoudle;
+    public void setProjectModule(int projectModule) {
+        ProjectModule = projectModule;
     }
 
-    public boolean isTrainingMoudle() {
-        return TrainingMoudle;
+    public int getTrainingModule() {
+        return TrainingModule;
     }
 
-    public void setTrainingMoudle(boolean trainingMoudle) {
-        TrainingMoudle = trainingMoudle;
+    public void setTrainingModule(int trainingModule) {
+        TrainingModule = trainingModule;
     }
 
-    public boolean isEmployeeMoudle() {
-        return EmployeeMoudle;
+    public int getEmployeeModule() {
+        return EmployeeModule;
     }
 
-    public void setEmployeeMoudle(boolean employeeMoudle) {
-        EmployeeMoudle = employeeMoudle;
+    public void setEmployeeModule(int employeeModule) {
+        EmployeeModule = employeeModule;
     }
 
-    public boolean isAdmin() {
+    public int getIsAdmin() {
         return isAdmin;
     }
 
-    public void setAdmin(boolean admin) {
-        isAdmin = admin;
+    public void setIsAdmin(int isAdmin) {
+        this.isAdmin = isAdmin;
     }
 }

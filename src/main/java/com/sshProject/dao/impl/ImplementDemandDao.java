@@ -20,9 +20,9 @@ public class ImplementDemandDao implements DemandDao
     {
         this.sessionFactory=sessionFactory;
     }
-    public boolean addDemand(TrainingDemand demand)
+    public void addDemand(TrainingDemand demand)
     {
-
+        sessionFactory.getCurrentSession().save(demand);
     }
     public boolean updateDemand(TrainingDemand demand)
     {
@@ -31,7 +31,7 @@ public class ImplementDemandDao implements DemandDao
         query.setString(0,String.valueOf(demand.getDemandName()));
         query.setString(1,String.valueOf(demand.getEmployeeId()));
         query.setString(2,String.valueOf(demand.getDescription()));
-        query.setString(3,String.valueOf(demand.isDemandStatus()));
+        query.setString(3,String.valueOf(demand.getDemandStatus()));
         query.setString(4,String.valueOf(demand.getDemandIndex()));
         return (query.executeUpdate()>0);
     }

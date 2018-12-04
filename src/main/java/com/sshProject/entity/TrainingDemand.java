@@ -14,7 +14,7 @@ public class TrainingDemand {
     private String description;
 
     @Column(name="demandStatus")
-    private boolean demandStatus;
+    private int demandStatus;
 
     @Column(name="demandIndex")
     private int demandIndex;
@@ -43,11 +43,11 @@ public class TrainingDemand {
         this.description = description;
     }
 
-    public boolean isDemandStatus() {
+    public int getDemandStatus() {
         return demandStatus;
     }
 
-    public void setDemandStatus(boolean demandStatus) {
+    public void setDemandStatus(int demandStatus) {
         this.demandStatus = demandStatus;
     }
 
