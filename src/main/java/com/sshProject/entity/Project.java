@@ -1,13 +1,16 @@
 package com.sshProject.entity;
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Date;
 
 @Entity
 @Table(name="Project")
 public class Project {
+
     @Column(name="projName")
     private String projName;
 
+    @Id
+    @GeneratedValue
     @Column(name="projIndex")
     private int projIndex;
 

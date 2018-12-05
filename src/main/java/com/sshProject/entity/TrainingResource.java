@@ -7,6 +7,8 @@ public class TrainingResource {
     @Column(name="className")
     private String className;
 
+    @Id
+    @GeneratedValue
     @Column(name="trainerId")
     private int trainerId;
 

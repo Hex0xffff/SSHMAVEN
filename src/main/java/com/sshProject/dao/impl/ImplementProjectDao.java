@@ -15,6 +15,7 @@ import java.util.ArrayList;
 @Transactional
 public class ImplementProjectDao implements ProjectDao
 {
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
     private SessionFactory sessionFactory;
     public void setSessionFactory(SessionFactory sessionFactory)

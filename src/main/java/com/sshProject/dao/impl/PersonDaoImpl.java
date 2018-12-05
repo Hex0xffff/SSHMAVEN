@@ -14,6 +14,7 @@ import java.util.List;
 @Repository
 @Transactional
 public class PersonDaoImpl implements PersonDao{
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
     private SessionFactory sessionFactory;
     public void setSessionFactory(SessionFactory sessionFactory){

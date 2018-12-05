@@ -16,8 +16,8 @@ public class ProjectServicelmpl implements ProjectService{
     @Autowired
     private ProjectDao projectDao;
 
-    public boolean addProject(Project project) {
-    	return projectDao.addProject(project);
+    public void addProject(Project project) {
+        projectDao.addProject(project);
     }
 
     public boolean updateProject(Project project) {
@@ -47,8 +47,8 @@ public class ProjectServicelmpl implements ProjectService{
     	return List;
     }
 
-   public boolean addTask(Task task) {
-    	return projectDao.addTask(task);
+   public void addTask(Task task) {
+    	projectDao.addTask(task);
     }
 
     public boolean updateTask(Task task) {

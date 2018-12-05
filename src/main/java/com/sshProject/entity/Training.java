@@ -1,6 +1,6 @@
 package com.sshProject.entity;
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Date;
 @Entity
 @Table(name="Training")
 public class Training {
@@ -10,6 +10,8 @@ public class Training {
     @Column(name="trainingOwnerId")
     private int trainingOwnerId;
 
+    @Id
+    @GeneratedValue
     @Column(name="trainingIndex")
     private int trainingIndex;
 

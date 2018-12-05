@@ -12,6 +12,7 @@ import java.util.ArrayList;
 @Repository
 @Transactional
 public class ImplementUserDao implements UserDao {
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
     private SessionFactory sessionFactory;
     public void setSessionFactory(SessionFactory sessionFactory){

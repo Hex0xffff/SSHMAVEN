@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
         return userDao.deleteUser(userId);
     }
 
-    public boolean checkAuthorization(String username) {
-        return userDao.checkAuthorization(username);
-    }
+//    public boolean checkAuthorization(String username) {
+//        return userDao.checkAuthorization(username);
+//    }
 }

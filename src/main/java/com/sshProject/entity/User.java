@@ -4,6 +4,8 @@ import javax.persistence.*;
 @Entity
 @Table(name="User")
 public class User {
+    @Id
+    @GeneratedValue
     @Column(name="userId")
     private int userId;
 

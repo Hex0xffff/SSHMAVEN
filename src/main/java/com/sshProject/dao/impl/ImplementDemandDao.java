@@ -10,10 +10,12 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 import java.util.ArrayList;
 
+@SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
 @Repository
 @Transactional
 public class ImplementDemandDao implements DemandDao
 {
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
     private SessionFactory sessionFactory;
     public  void setSessionFactory(SessionFactory sessionFactory)

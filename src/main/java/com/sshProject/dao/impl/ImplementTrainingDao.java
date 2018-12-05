@@ -16,6 +16,7 @@ import java.util.ArrayList;
 @Transactional
 public class ImplementTrainingDao implements TrainingDao
 {
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
     private SessionFactory sessionFactory;
     public  void setSessionFactory(SessionFactory sessionFactory)

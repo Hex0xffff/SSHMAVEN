@@ -5,6 +5,8 @@ import java.util.ArrayList;
 @Entity
 @Table(name="TrainingGroup")
 public class TrainingGroup {
+    @Id
+    @GeneratedValue
     @Column(name="trainingIndex")
     private int trainingIndex;
 
