@@ -55,4 +55,12 @@ public class ImplementDemandDao implements DemandDao
         Query query=sessionFactory.getCurrentSession().createQuery(hql);
         return  (ArrayList<TrainingDemand>)query.list();
     }
+
+    public  TrainingDemand getDemand(int demandIndex)
+    {
+        String hql="from TrainingDemand td where td.demandIndex=?";
+        Query query=sessionFactory.getCurrentSession().createQuery(hql);
+        query.setString(0,String.valueOf(demandIndex));
+        return (TrainingDemand)query.uniqueResult();
+    }
 }
