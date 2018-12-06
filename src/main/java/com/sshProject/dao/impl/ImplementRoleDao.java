@@ -14,6 +14,7 @@ import java.util.ArrayList;
 @Transactional
 public class ImplementRoleDao implements RoleDao
 {
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
     private SessionFactory sessionFactory;
     public  void setSessionFactory(SessionFactory sessionFactory)

@@ -11,5 +11,5 @@ public interface UserService {
 
     boolean deleteUser(int userId);
 
-    boolean checkAuthorization(String username);
+//    boolean checkAuthorization(String username);
 }

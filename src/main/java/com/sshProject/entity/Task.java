@@ -1,6 +1,6 @@
 package com.sshProject.entity;
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Date;
 
 @Entity
 @Table(name="Task")
@@ -8,6 +8,8 @@ public class Task {
     @Column(name="taskName")
     private String taskName;
 
+    @Id
+    @GeneratedValue
     @Column(name="taskId")
     private int taskId;
 

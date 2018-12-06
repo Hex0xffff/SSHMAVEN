@@ -2,8 +2,10 @@ package com.sshProject.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name="ProectGroup")
+@Table(name="ProjectGroup")
 public class ProjectGroup {
+    @Id
+    @GeneratedValue
     @Column(name="projIndex")
     private int projIndex;
 
