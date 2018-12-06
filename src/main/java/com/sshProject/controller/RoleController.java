@@ -21,18 +21,20 @@ public class RoleController {
 
     @RequestMapping(value = "/addModule", method = RequestMethod.POST)
     public String addModule(int employeeIndex, int moduleIndex, HttpServletRequest request) {
-        return "";
+        roleService.addModule(employeeIndex, moduleIndex);
+        return "redirect:/index";
     }
 
-    @RequestMapping("/removeModule")
-    public String removeModule(int employeeIndex, int moduleIndex, HttpServletRequest request) {
-        return "";
+    @RequestMapping(value = "/removeModule", method = RequestMethod.DELETE)
+    public String removeModule(int employeeIndex, int moduleIndex, HttpServletResponse response) {
+        String result = "";
+        return "/index";
     }
 
     @RequestMapping(value = "/addEmployee", method = RequestMethod.POST)
     public String addEmployee(Employee employee, HttpServletRequest request) {
         roleService.addEmployee(employee);
-        return "redirect:/";
+        return "redirect:/index";
     }
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
@@ -48,14 +50,21 @@ public class RoleController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "/";
+        return "/index";
     }
 
     @RequestMapping(value = "/info/all", method = RequestMethod.GET)
     public String getEmployees(HttpServletResponse response) {
         ArrayList<Employee> employees = roleService.getEmployees();
+        //json对象
+        StringBuilder array = new StringBuilder();
+        for(Employee e : employees) {
+            String arr = "{\"employeeId\":\"" + e.getEmployeeIndex() + "\", \"identicalNumber\":\"" + e.getIdenticalNumber() + "\", \"RealName\":\"" + e.getRealName() + "\", \"Address\":\"" + e.getAddress() + "\"},";
+            array.append(arr);
+        }
+        //json数组
+        String result = "{\"employees\": [" + array.substring(0, array.length() - 1) + "] }";
 
-        String result = "{\"employeeId\":\"xxx\", \"identicalNumber\":\"xxx\", \"RealName\":\"xxx\", \"Address\":\"xxx\"}";
         response.setContentType("application/json");
 
         try {
@@ -64,7 +73,6 @@ public class RoleController {
         } catch (IOException e) {
             e.printStackTrace();
         };
-
-        return "/";
+        return "/index";
     }
 }
