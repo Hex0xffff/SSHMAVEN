@@ -17,7 +17,6 @@ public class TrainingDemand {
     private int demandStatus;
 
     @Id
-    @GeneratedValue
     @Column(name="demandIndex")
     private int demandIndex;
 

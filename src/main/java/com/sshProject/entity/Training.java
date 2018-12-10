@@ -11,7 +11,6 @@ public class Training {
     private int trainingOwnerId;
 
     @Id
-    @GeneratedValue
     @Column(name="trainingIndex")
     private int trainingIndex;
 

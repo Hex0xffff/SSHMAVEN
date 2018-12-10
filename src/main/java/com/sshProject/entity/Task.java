@@ -9,7 +9,6 @@ public class Task {
     private String taskName;
 
     @Id
-    @GeneratedValue
     @Column(name="taskId")
     private int taskId;
 

@@ -6,7 +6,6 @@ import java.util.ArrayList;
 @Table(name="TrainingGroup")
 public class TrainingGroup {
     @Id
-    @GeneratedValue
     @Column(name="trainingIndex")
     private int trainingIndex;
 

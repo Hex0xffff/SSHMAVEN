@@ -5,7 +5,6 @@ import javax.persistence.*;
 @Table(name="ProjectGroup")
 public class ProjectGroup {
     @Id
-    @GeneratedValue
     @Column(name="projIndex")
     private int projIndex;
 

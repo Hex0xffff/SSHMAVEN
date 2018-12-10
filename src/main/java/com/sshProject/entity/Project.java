@@ -10,7 +10,6 @@ public class Project {
     private String projName;
 
     @Id
-    @GeneratedValue
     @Column(name="projIndex")
     private int projIndex;
 

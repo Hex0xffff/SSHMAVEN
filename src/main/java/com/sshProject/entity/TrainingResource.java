@@ -8,7 +8,6 @@ public class TrainingResource {
     private String className;
 
     @Id
-    @GeneratedValue
     @Column(name="trainerId")
     private int trainerId;
 
