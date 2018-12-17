@@ -2,6 +2,7 @@ package com.sshProject.controller;
 
 import com.sshProject.entity.Training;
 import com.sshProject.entity.TrainingDemand;
+import com.sshProject.service.DemandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,40 +14,41 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.lang.String;
 
 @RestController
 @RequestMapping(value = "/api/demand")
 public class DemandController
 {
-    @Autowired;
+    @Autowired
     private DemandService demandService;
-    @RequestMapping(value = "/getAllDemands",method = RequestMethod.GET);
+    @RequestMapping(value = "/getAllDemands",method = RequestMethod.GET)
     public  String getAllDemands(HttpServletRequest request)
     {
-        request.setAttribute("TrainingDemandList",DemandService.getAllDemands());
+        request.setAttribute("TrainingDemandList",demandService.getAllDemands());
 
         return  "/index";
     }
 
-    @RequestMapping(value = "/getDemands",method = RequestMethod.GET);
-    public  String getDemand(int employeeId, HttpServletRequest request)
+    @RequestMapping(value = "/getDemands",method = RequestMethod.GET)
+    public  String getDemand(int employeeIndex, HttpServletRequest request)
     {
-        request.setAttribute("TrainingDemandList",DemandService.getDemands(employeeId));
+        request.setAttribute("TrainingDemandList",demandService.getDemand(employeeIndex));
 
         return  "/index";
     }
 
-    @RequestMapping(value="/addDemand" ,method=RequestMethod.POST);
+    @RequestMapping(value="/addDemand" ,method=RequestMethod.POST)
     public String addDemand(TrainingDemand demand , HttpServletRequest request)
     {
-        DemandService.addDemand(demand);
+        demandService.addDemand(demand);
         return "redirect:/addDemand";
     }
     @RequestMapping(value = "/deleteDemand" ,method=RequestMethod.DELETE)
     public  void deleteDemand(int demandIndex,HttpServletRequest response)
     {
         String result="{\"result\":\"error\"}";
-        if(DemandService.deleteDemand(demandIndex))
+        if(demandService.deleteDemand(demandIndex))
         {
             result="{\"result\":\"success\"}";
         }
@@ -67,9 +69,9 @@ public class DemandController
     @RequestMapping(value = "/updateDemand",method = RequestMethod.POST)
     public String updateDemand(TrainingDemand demand, HttpServletRequest request)
     {
-        if(DemandService.updateDemand(demand))
+        if(demandService.updateDemand(demand))
         {
-            demand=demandService.getdemand(demand.getDemandIndex());
+            demand=demandService.getDemand(demand.getEmployeeIndex());
             request.setAttribute("demand",demand);
             return "redirect:/updateDemand";
         }
@@ -80,14 +82,14 @@ public class DemandController
     }
 
     @RequestMapping(value="/info/all",method =RequestMethod.GET)
-    public  String getDemandjson(HttpServletRequest response)
+    public  String getDemandGroupjson(HttpServletRequest response)
     {
         ArrayList<TrainingDemand> demands=demandService.getAllDemands();
         //json对象
         StringBuilder array=new StringBuilder();
         for (TrainingDemand d :demands)
         {
-            String arr = "{\"employeeId\":\"" + d.getEmployeeId() + "\", \"demandName\":\"" + d.getDemandName() + "\", \"description\":\"" + d.getDescription() + "\", \"demandStatus\":\"" + d.getDemandStatus() + "\",\"demandIndex\":\""+d.getDemandIndex()+"\"},";
+            String arr = "{\"employeeIndex\":\"" + d.getEmployeeIndex() + "\", \"demandName\":\"" + d.getDemandName() + "\", \"description\":\"" + d.getDescription() + "\", \"demandStatus\":\"" + d.getDemandStatus() + "\",\"demandIndex\":\""+d.getDemandIndex()+"\"},";
             array.append(arr);
         }
         //json数组
@@ -102,6 +104,12 @@ public class DemandController
             e.printStackTrace();
         }
         return  "/index";
+    }
+
+    @RequestMapping(value="/info",method = RequestMethod.GET)
+    public  String getDemandjson(HttpServletRequest response)
+    {
+        TrainingDemand demand=demandService.
     }
 /*
      @RequestMapping(value = "/info/all", method = RequestMethod.GET)

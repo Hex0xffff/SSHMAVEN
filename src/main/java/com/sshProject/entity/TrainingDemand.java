@@ -7,8 +7,8 @@ public class TrainingDemand {
     @Column(name="demandName")
     private String demandName;
 
-    @Column(name="employeeId")
-    private int employeeId;
+    @Column(name="employeeIndex")
+    private int employeeIndex;
 
     @Column(name="description")
     private String description;
@@ -27,12 +27,12 @@ public class TrainingDemand {
         this.demandName = demandName;
     }
 
-    public int getEmployeeId() {
-        return employeeId;
+    public int getEmployeeIndex() {
+        return employeeIndex;
     }
 
-    public void setEmployeeId(int employeeId) {
-        this.employeeId = employeeId;
+    public void setEmployeeIndex(int employeeIndex) {
+        this.employeeIndex = employeeIndex;
     }
 
     public String getDescription() {

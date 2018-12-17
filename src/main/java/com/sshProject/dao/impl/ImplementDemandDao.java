@@ -26,10 +26,10 @@ public class ImplementDemandDao implements DemandDao
     }
     public boolean updateDemand(TrainingDemand demand)
     {
-        String hql="Update TrainingDemand td set td.demandName=?,td.employeeId=?,td.description=?,td.demandStatus=? where demandIndex=?";
+        String hql="Update TrainingDemand td set td.demandName=?,td.employeeIndex=?,td.description=?,td.demandStatus=? where demandIndex=?";
         Query query=sessionFactory.getCurrentSession().createQuery(hql);
         query.setString(0,String.valueOf(demand.getDemandName()));
-        query.setString(1,String.valueOf(demand.getEmployeeId()));
+        query.setString(1,String.valueOf(demand.getEmployeeIndex()));
         query.setString(2,String.valueOf(demand.getDescription()));
         query.setString(3,String.valueOf(demand.getDemandStatus()));
         query.setString(4,String.valueOf(demand.getDemandIndex()));
@@ -56,11 +56,11 @@ public class ImplementDemandDao implements DemandDao
         return  (ArrayList<TrainingDemand>)query.list();
     }
 
-    public  TrainingDemand getDemand(int employeeId)
+    public  TrainingDemand getDemand(int employeeIndex)
     {
-        String hql="from TrainingDemand td where td.employeeId=?";
+        String hql="from TrainingDemand td where td.employeeIndex=?";
         Query query=sessionFactory.getCurrentSession().createQuery(hql);
-        query.setString(0,String.valueOf(employeeId));
+        query.setString(0,String.valueOf(employeeIndex));
         return (TrainingDemand)query.uniqueResult();
     }
 }
