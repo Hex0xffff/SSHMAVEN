@@ -8,9 +8,9 @@ public interface DemandDao {
 
     boolean deleteDemand(int demandIndex);
 
-    ArrayList<TrainingDemand> getDemands(int employeeId);
+    //ArrayList<TrainingDemand> getDemands(int employeeId);
 
     ArrayList<TrainingDemand> getAllDemands();
 
-    TrainingDemand getDemand(int demandIndex);
+    TrainingDemand getDemand(int employeeId);
 }

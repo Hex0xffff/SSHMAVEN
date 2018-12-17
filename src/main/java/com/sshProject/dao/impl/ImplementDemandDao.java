@@ -42,13 +42,13 @@ public class ImplementDemandDao implements DemandDao
         query.setString(0,String.valueOf(demandIndex));
         return  (query.executeUpdate()>0);
     }
-    public ArrayList<TrainingDemand> getDemands(int employeeId)
+    /*public ArrayList<TrainingDemand> getDemands(int employeeId)
     {
         String hql="form TrainingDemand td where td.employeeId=?";
         Query query=sessionFactory.getCurrentSession().createQuery(hql);
         query.setString(0,String.valueOf(employeeId));
         return (ArrayList<TrainingDemand>)query.list();
-    }
+    }*/
     public ArrayList<TrainingDemand> getAllDemands()
     {
         String hql="from TrainingDemand";
@@ -56,11 +56,11 @@ public class ImplementDemandDao implements DemandDao
         return  (ArrayList<TrainingDemand>)query.list();
     }
 
-    public  TrainingDemand getDemand(int demandIndex)
+    public  TrainingDemand getDemand(int employeeId)
     {
-        String hql="from TrainingDemand td where td.demandIndex=?";
+        String hql="from TrainingDemand td where td.employeeId=?";
         Query query=sessionFactory.getCurrentSession().createQuery(hql);
-        query.setString(0,String.valueOf(demandIndex));
+        query.setString(0,String.valueOf(employeeId));
         return (TrainingDemand)query.uniqueResult();
     }
 }

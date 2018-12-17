@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 @RestController
 @RequestMapping(value = "/api/demand")
@@ -77,4 +78,53 @@ public class DemandController
             return "/error";
         }
     }
+
+    @RequestMapping(value="/info/all",method =RequestMethod.GET)
+    public  String getDemandjson(HttpServletRequest response)
+    {
+        ArrayList<TrainingDemand> demands=demandService.getAllDemands();
+        //json对象
+        StringBuilder array=new StringBuilder();
+        for (TrainingDemand d :demands)
+        {
+            String arr = "{\"employeeId\":\"" + d.getEmployeeId() + "\", \"demandName\":\"" + d.getDemandName() + "\", \"description\":\"" + d.getDescription() + "\", \"demandStatus\":\"" + d.getDemandStatus() + "\",\"demandIndex\":\""+d.getDemandIndex()+"\"},";
+            array.append(arr);
+        }
+        //json数组
+        String result="{\"demands\":["+array.substring(0,array.length()-1)+"]}";
+        response.setContentType("application/json");
+        try {
+            PrintWriter out =response.getWriter();
+            out.write(result);
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        return  "/index";
+    }
+/*
+     @RequestMapping(value = "/info/all", method = RequestMethod.GET)
+    public String getEmployees(HttpServletResponse response) {
+        ArrayList<Employee> employees = roleService.getEmployees();
+        //json对象
+        StringBuilder array = new StringBuilder();
+        for(Employee e : employees) {
+            String arr = "{\"employeeId\":\"" + e.getEmployeeIndex() + "\", \"identicalNumber\":\"" + e.getIdenticalNumber() + "\", \"RealName\":\"" + e.getRealName() + "\", \"Address\":\"" + e.getAddress() + "\"},";
+            array.append(arr);
+        }
+        //json数组
+        String result = "{\"employees\": [" + array.substring(0, array.length() - 1) + "] }";
+
+        response.setContentType("application/json");
+
+        try {
+            PrintWriter out = response.getWriter();
+            out.write(result);
+        } catch (IOException e) {
+            e.printStackTrace();
+        };
+        return "/index";
+    }
+     */
 }
