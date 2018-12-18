@@ -1,6 +1,7 @@
 package com.sshProject.service.impl;
 
 import com.sshProject.dao.DemandDao;
+import com.sshProject.entity.Employee;
 import com.sshProject.entity.TrainingDemand;
 import com.sshProject.service.DemandService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,4 +40,8 @@ public class DemandServiceImpl implements DemandService
         return demandDao.getDemand(employeeIndex);
     }
 
+    public Employee getEmployee(int employeeIndex)
+    {
+        return demandDao.getEmployee(employeeIndex);
+    }
 }

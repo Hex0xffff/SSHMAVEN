@@ -1,5 +1,6 @@
 package com.sshProject.service;
 
+import com.sshProject.entity.Employee;
 import com.sshProject.entity.TrainingDemand;
 
 import java.util.ArrayList;
@@ -15,4 +16,6 @@ public interface DemandService
     ArrayList<TrainingDemand> getAllDemands();
 
     TrainingDemand getDemand(int employeeIndex);
+
+    Employee getEmployee(int employeeIndex);
 }

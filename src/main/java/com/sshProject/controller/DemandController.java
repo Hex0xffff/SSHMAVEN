@@ -1,5 +1,6 @@
 package com.sshProject.controller;
 
+import com.sshProject.entity.Employee;
 import com.sshProject.entity.Training;
 import com.sshProject.entity.TrainingDemand;
 import com.sshProject.service.DemandService;
@@ -14,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.lang.String;
+//import java.lang.String;
 
 @RestController
 @RequestMapping(value = "/api/demand")
@@ -107,9 +108,31 @@ public class DemandController
     }
 
     @RequestMapping(value="/info",method = RequestMethod.GET)
+    public  String getPersonalDemandjson(int employeeIndex,HttpServletRequest response)
+    {
+        TrainingDemand demand=demandService.getDemand(employeeIndex);
+        Employee employee=demandService.getEmployee(employeeIndex);
+        String result="{\"demandName\":\""+demand.getDemandName()+"\",\"employeeIndex\":\""+demand.getEmployeeIndex()+
+                "\",\"RealName\":\""+employee.getRealName()+"\",\"demandStatus\":\""+demand.getDemandStatus() +"\",\"Description\":" +
+                "\""+demand.getDescription()+"\"},";
+        response.setContentType("application/json");
+        try
+        {
+            PrintWriter out =response.getWriter();
+            out.write(result);
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        return "/index";
+
+    }
+
+    /*@RequestMapping(value="/info",method = RequestMethod.GET)
     public  String getDemandjson(HttpServletRequest response)
     {
-        TrainingDemand demand=demandService.
+        //TrainingDemand demand=demandService.
     }
 /*
      @RequestMapping(value = "/info/all", method = RequestMethod.GET)

@@ -1,5 +1,6 @@
 package com.sshProject.dao.impl;
 import com.sshProject.dao.DemandDao;
+import com.sshProject.entity.Employee;
 import com.sshProject.entity.Training;
 import com.sshProject.entity.TrainingDemand;
 import org.hibernate.Query;
@@ -62,5 +63,13 @@ public class ImplementDemandDao implements DemandDao
         Query query=sessionFactory.getCurrentSession().createQuery(hql);
         query.setString(0,String.valueOf(employeeIndex));
         return (TrainingDemand)query.uniqueResult();
+    }
+
+    public Employee getEmployee(int employeeIndex)
+    {
+        String hql="from Employee e where e.employeeIndex=?";
+        Query query=sessionFactory.getCurrentSession().createQuery(hql);
+        query.setString(0,String.valueOf(employeeIndex));
+        return (Employee) query.uniqueResult();
     }
 }

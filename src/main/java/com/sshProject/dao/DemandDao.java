@@ -1,4 +1,5 @@
 package com.sshProject.dao;
+import com.sshProject.entity.Employee;
 import com.sshProject.entity.TrainingDemand;
 import java.util.ArrayList;
 public interface DemandDao {
@@ -13,4 +14,6 @@ public interface DemandDao {
     ArrayList<TrainingDemand> getAllDemands();
 
     TrainingDemand getDemand(int employeeIndex);
+
+    Employee getEmployee(int employeeIndex);
 }
