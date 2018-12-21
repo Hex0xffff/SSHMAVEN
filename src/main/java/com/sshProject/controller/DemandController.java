@@ -1,11 +1,11 @@
 package com.sshProject.controller;
 
 import com.sshProject.entity.Employee;
-import com.sshProject.entity.Training;
+//import com.sshProject.entity.Training;
 import com.sshProject.entity.TrainingDemand;
 import com.sshProject.service.DemandService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+//import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -46,7 +46,7 @@ public class DemandController
         return "redirect:/addDemand";
     }
     @RequestMapping(value = "/deleteDemand" ,method=RequestMethod.DELETE)
-    public void deleteDemand(int demandIndex,HttpServletRequest response)
+    public void deleteDemand(int demandIndex,HttpServletResponse response)
     {
         String result="{\"result\":\"error\"}";
         if(demandService.deleteDemand(demandIndex))
@@ -83,7 +83,7 @@ public class DemandController
     }
 
     @RequestMapping(value="/info/all",method =RequestMethod.GET)
-    public  String getDemandGroupjson(HttpServletRequest response)
+    public  String getDemandGroupjson(HttpServletResponse response)
     {
         ArrayList<TrainingDemand> demands=demandService.getAllDemands();
         //json对象
@@ -108,7 +108,7 @@ public class DemandController
     }
 
     @RequestMapping(value="/info",method = RequestMethod.GET)
-    public  String getPersonalDemandjson(int employeeIndex,HttpServletRequest response)
+    public  String getPersonalDemandjson(int employeeIndex,HttpServletResponse response)
     {
         TrainingDemand demand=demandService.getDemand(employeeIndex);
         Employee employee=demandService.getEmployee(employeeIndex);
