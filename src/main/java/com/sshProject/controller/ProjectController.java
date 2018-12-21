@@ -106,7 +106,7 @@ public class ProjectController {
             result = "{\"result\":\"success\"}";
         }
 
-        response.setContentType("application/json");
+        response.setContentType ("application/json");
 
         try {
             PrintWriter out = response.getWriter();

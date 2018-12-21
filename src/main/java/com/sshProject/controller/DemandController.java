@@ -46,7 +46,7 @@ public class DemandController
         return "redirect:/addDemand";
     }
     @RequestMapping(value = "/deleteDemand" ,method=RequestMethod.DELETE)
-    public  void deleteDemand(int demandIndex,HttpServletRequest response)
+    public  void deleteDemand(int demandIndex,HttpServletResponse response)
     {
         String result="{\"result\":\"error\"}";
         if(demandService.deleteDemand(demandIndex))
@@ -83,7 +83,7 @@ public class DemandController
     }
 
     @RequestMapping(value="/info/all",method =RequestMethod.GET)
-    public  String getDemandGroupjson(HttpServletRequest response)
+    public  String getDemandGroupjson(HttpServletResponse response)
     {
         ArrayList<TrainingDemand> demands=demandService.getAllDemands();
         //json对象
@@ -108,7 +108,7 @@ public class DemandController
     }
 
     @RequestMapping(value="/info",method = RequestMethod.GET)
-    public  String getPersonalDemandjson(int employeeIndex,HttpServletRequest response)
+    public  String getPersonalDemandjson(int employeeIndex,HttpServletResponse response)
     {
         TrainingDemand demand=demandService.getDemand(employeeIndex);
         Employee employee=demandService.getEmployee(employeeIndex);
@@ -128,34 +128,4 @@ public class DemandController
         return "/index";
 
     }
-
-    /*@RequestMapping(value="/info",method = RequestMethod.GET)
-    public  String getDemandjson(HttpServletRequest response)
-    {
-        //TrainingDemand demand=demandService.
-    }
-/*
-     @RequestMapping(value = "/info/all", method = RequestMethod.GET)
-    public String getEmployees(HttpServletResponse response) {
-        ArrayList<Employee> employees = roleService.getEmployees();
-        //json对象
-        StringBuilder array = new StringBuilder();
-        for(Employee e : employees) {
-            String arr = "{\"employeeId\":\"" + e.getEmployeeIndex() + "\", \"identicalNumber\":\"" + e.getIdenticalNumber() + "\", \"RealName\":\"" + e.getRealName() + "\", \"Address\":\"" + e.getAddress() + "\"},";
-            array.append(arr);
-        }
-        //json数组
-        String result = "{\"employees\": [" + array.substring(0, array.length() - 1) + "] }";
-
-        response.setContentType("application/json");
-
-        try {
-            PrintWriter out = response.getWriter();
-            out.write(result);
-        } catch (IOException e) {
-            e.printStackTrace();
-        };
-        return "/index";
-    }
-     */
 }
