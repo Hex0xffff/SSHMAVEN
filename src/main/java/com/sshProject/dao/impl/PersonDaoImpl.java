@@ -34,8 +34,14 @@ public class PersonDaoImpl implements PersonDao{
         return query.list();
     }
 
-    public void addPerson(Person person) {
-        sessionFactory.getCurrentSession().save(person);
+    public boolean addPerson(Person person) {
+        try{
+            sessionFactory.getCurrentSession().save(person);
+        }
+        catch(Exception e){
+            return false;
+        }
+        return true;
     }
 
     public boolean delPerson(String id) {

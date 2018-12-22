@@ -14,9 +14,9 @@ public class DemandServiceImpl implements DemandService
     @Autowired
     private DemandDao demandDao;
 
-    public void addDemand(TrainingDemand demand)
+    public boolean addDemand(TrainingDemand demand)
     {
-        demandDao.addDemand(demand);
+        return demandDao.addDemand(demand);
     }
 
     public boolean updateDemand(TrainingDemand demand)

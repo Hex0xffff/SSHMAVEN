@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public interface DemandService
 {
-    void addDemand(TrainingDemand demand);
+    boolean addDemand(TrainingDemand demand);
 
     boolean updateDemand(TrainingDemand demand);
 

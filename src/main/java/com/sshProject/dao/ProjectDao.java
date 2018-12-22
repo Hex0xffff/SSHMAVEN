@@ -5,25 +5,44 @@ import com.sshProject.entity.Task;
 import java.util.ArrayList;
 
 public interface ProjectDao {
-    void addProject(Project project);
+
+    Task getTask(int taskIndex);
+
+    Project getProject(int projIndex);
+
+    ProjectGroup getProjectTeam(int projectIndex);
+
+    ArrayList<Project> getAllProjects();
+
+    ArrayList<ProjectGroup> getAllProjTeam();
+
+    ArrayList<Task> getProjectTasks(int projectIndex);
+
+    boolean addProject(Project project);
 
     boolean updateProject(Project project);
 
     boolean deleteProject(Project project);
 
-    ProjectGroup getProjectTeam(int projectIndex);
-
-    ArrayList<Task> getProjectTasks(int projectIndex);
-
-    void addTask(Task task);
+    boolean addTask(Task task);
 
     boolean updateTask(Task task);
 
     boolean deleteTask(int taskIndex);
 
-    Task getTask(int taskIndex);
+    boolean updateProjectTeam(ProjectGroup projectGroup);
 
-    Project getProject(int projectIndex);
+    boolean delProjTeamByGroup(ProjectGroup projectGroup);
 
-    ArrayList<Project> getAllProjects();
+    boolean addProjTeam(ProjectGroup projectGroup);
+
+    boolean getProjectByEmpId(int employeeId);
+
+    boolean delProjTeam(ProjectGroup projectGroup);
+
+    boolean updateProjEmplById(Project project);
+
+    boolean delProjEmplByGroup(Project project);
+
+    boolean delProjEmplById(Project project);
 }

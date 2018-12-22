@@ -9,7 +9,7 @@ public interface PersonDao {
 
     List<Person> getAllPerson();
 
-    void addPerson(Person person);
+    boolean addPerson(Person person);
 
     boolean delPerson(String id);
 

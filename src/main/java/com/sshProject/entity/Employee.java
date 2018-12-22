@@ -1,4 +1,6 @@
 package com.sshProject.entity;
+import com.sun.xml.internal.txw2.annotation.XmlCDATA;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,14 +13,24 @@ public class Employee {
     @Column(name="employeeIndex")
     private int employeeIndex;
 
-    @Column(name="identicalNumber")
-    private String identicalNumber;
-
-    @Column(name="realName")
-    private String realName;
+    @Column(name="name")
+    private String name;
 
     @Column(name="address")
     private String address;
+
+    @Column(name="gender")
+    private String gender;
+
+    @Column(name="identicalNumber")
+    private String identicalNumber;
+
+    @Column(name="status")
+    private String status;
+
+    @Column(name="phone")
+    private String phone;
+
 
     public int getEmployeeIndex() {
         return employeeIndex;
@@ -36,14 +48,6 @@ public class Employee {
         this.identicalNumber = identicalNumber;
     }
 
-    public String getRealName() {
-        return realName;
-    }
-
-    public void setRealName(String realName) {
-        this.realName = realName;
-    }
-
     public String getAddress() {
         return address;
     }
@@ -58,5 +62,37 @@ public class Employee {
 
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }

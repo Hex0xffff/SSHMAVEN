@@ -3,7 +3,7 @@ import com.sshProject.entity.Employee;
 import com.sshProject.entity.TrainingDemand;
 import java.util.ArrayList;
 public interface DemandDao {
-    void addDemand(TrainingDemand demand);
+    boolean addDemand(TrainingDemand demand);
 
     boolean updateDemand(TrainingDemand demand);
 

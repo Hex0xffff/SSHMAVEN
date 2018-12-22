@@ -13,8 +13,11 @@ public class Project {
     @Column(name="projIndex")
     private int projIndex;
 
-    @Column(name="ownerld")
-    private int ownerld;
+    @Column(name="employeeld")
+    private int employeeld;
+
+    @Column(name="employeeName")
+    private String employeeNmae;
 
     @Column(name="creatTime")
     private Date creatTime;
@@ -42,14 +45,6 @@ public class Project {
 
     public void setProjIndex(int projIndex) {
         this.projIndex = projIndex;
-    }
-
-    public int getOwnerld() {
-        return ownerld;
-    }
-
-    public void setOwnerld(int ownerld) {
-        this.ownerld = ownerld;
     }
 
     public Date getCreatTime() {
@@ -82,5 +77,21 @@ public class Project {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getEmployeeld() {
+        return employeeld;
+    }
+
+    public void setEmployeeld(int employeeld) {
+        this.employeeld = employeeld;
+    }
+
+    public String getEmployeeNmae() {
+        return employeeNmae;
+    }
+
+    public void setEmployeeNmae(String employeeNmae) {
+        this.employeeNmae = employeeNmae;
     }
 }

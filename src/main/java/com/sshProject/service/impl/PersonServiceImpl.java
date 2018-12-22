@@ -24,8 +24,8 @@ public class PersonServiceImpl implements PersonService{
     }
 
 
-    public void addPerson(Person person) {
-        personDao.addPerson(person);
+    public boolean addPerson(Person person) {
+        return personDao.addPerson(person);
     }
 
     public boolean delPerson(String id) {

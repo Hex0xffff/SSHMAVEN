@@ -22,9 +22,15 @@ public class ImplementProjectDao implements ProjectDao
     {
         this.sessionFactory=sessionFactory;
     }
-    public  void addProject(Project project)
+    public  boolean addProject(Project project)
     {
-      sessionFactory.getCurrentSession().save(project);
+        try{
+            sessionFactory.getCurrentSession().save(project);
+        }
+        catch(Exception e){
+            return false;
+        }
+        return true;
 
     }
     public  boolean updateProject(Project project)
@@ -62,9 +68,15 @@ public class ImplementProjectDao implements ProjectDao
         query.setString(0,String.valueOf(projectIndex));
         return (ArrayList<Task>) query.list();
     }
-    public void addTask(Task task)
+    public boolean addTask(Task task)
     {
-        sessionFactory.getCurrentSession().save(task);
+        try{
+            sessionFactory.getCurrentSession().save(task);
+        }
+        catch(Exception e){
+            return false;
+        }
+        return true;
     }
     public boolean updateTask(Task task)
     {

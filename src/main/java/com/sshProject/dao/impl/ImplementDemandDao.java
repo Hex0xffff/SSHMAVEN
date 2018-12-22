@@ -15,15 +15,22 @@ import java.util.ArrayList;
 @Transactional
 public class ImplementDemandDao implements DemandDao
 {
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
     private SessionFactory sessionFactory;
     public  void setSessionFactory(SessionFactory sessionFactory)
     {
         this.sessionFactory=sessionFactory;
     }
-    public void addDemand(TrainingDemand demand)
+    public boolean addDemand(TrainingDemand demand)
     {
-        sessionFactory.getCurrentSession().save(demand);
+        try{
+            sessionFactory.getCurrentSession().save(demand);
+        }
+        catch(Exception e){
+            return false;
+        }
+        return true;
     }
     public boolean updateDemand(TrainingDemand demand)
     {

@@ -86,7 +86,7 @@ public class ImplementRoleDao implements RoleDao
         String hql="update Employee e set e.identicalNumber=?,e.realName=?,e.address=? where employeeIndex=?";
         Query query=sessionFactory.getCurrentSession().createQuery(hql);
         query.setString(0,employee.getIdenticalNumber());
-        query.setString(1,employee.getRealName());
+        query.setString(1,employee.getName());
         query.setString(2,employee.getAddress());
         query.setString(3,String.valueOf(employee.getEmployeeIndex()));
         return (query.executeUpdate()>0);

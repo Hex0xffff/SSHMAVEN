@@ -23,9 +23,15 @@ public class ImplementTrainingDao implements TrainingDao
     {
         this.sessionFactory=sessionFactory;
     }
-    public void addTraining(Training training)
+    public boolean addTraining(Training training)
     {
-        sessionFactory.getCurrentSession().save(training);
+        try{
+            sessionFactory.getCurrentSession().save(training);
+        }
+        catch(Exception e){
+            return false;
+        }
+        return true;
     }
     public boolean updateTraining(Training training)
     {
